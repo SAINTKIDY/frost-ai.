@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frost AI Video</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #05070d;
+      color: white;
+      display: flex;
+      justify-content: center;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 520px;
+      min-height: 100vh;
+      padding: 24px 18px;
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 800;
+      margin-top: 20px;
+    }
+
+    .logo span {
+      color: #62d9ff;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #8d96a8;
+      margin-top: 8px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: #0d111b;
+      border: 1px solid #202838;
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    textarea {
+      width: 100%;
+      height: 130px;
+      resize: none;
+      background: #070a11;
+      color: white;
+      border: 1px solid #273144;
+      border-radius: 14px;
+      padding: 15px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    textarea:focus {
+      border-color: #62d9ff;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 15px;
+      border: 0;
+      border-radius: 14px;
+      background: #62d9ff;
+      color: #001018;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .preview {
+      margin-top: 22px;
+      background: #070a11;
+      border: 1px solid #202838;
+      border-radius: 18px;
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: #7e8799;
+    }
+
+    .loading {
+      color: #62d9ff;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 14px;
+    }
+
+    .note {
+      text-align: center;
+      color: #687286;
+      font-size: 12px;
+      margin-top: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="app">
+
+    <div class="logo">
+      ❄️ Frost <span>AI</span>
+    </div>
+
+    <p class="subtitle">
+      Video Generator — Test Version
+    </p>
+
+    <section class="card">
+
+      <label for="prompt">Describe your video</label>
+
+      <textarea
+        id="prompt"
+        placeholder="Example: A futuristic city at night with flying cars..."
+      ></textarea>
+
+      <button onclick="generateVideo()">
+        ✨ Generate Video
+      </button>
+
+      <div class="preview" id="preview">
+        Your generated video will appear here.
+      </div>
+
+    </section>
+
+    <p class="note">
+      Free test version • No coins • No payment
+    </p>
+
+  </main>
+
+  <script>
+    function generateVideo() {
+      const prompt = document.getElementById("prompt").value.trim();
+      const preview = document.getElementById("preview");
+
+      if (!prompt) {
+        preview.innerHTML = "⚠️ Please describe your video first.";
+        return;
+      }
+
+      preview.innerHTML = `
+        <div class="loading">
+          ❄️ Creating your video...<br><br>
+          <small>${escapeHtml(prompt)}</small>
+        </div>
+      `;
+
+      setTimeout(() => {
+        preview.innerHTML = `
+          <div>
+            🎬<br><br>
+            <strong>Video test created!</strong><br><br>
+            <small>
+              This is the first working interface test.
+              Real AI video generation will be connected next.
+            </small>
+          </div>
+        `;
+      }, 2500);
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  </script>
+
+</body>
+</html>
