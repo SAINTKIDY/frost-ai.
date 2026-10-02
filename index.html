@@ -1,119 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frost AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frost AI</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      background: #05070d;
-      color: white;
-      font-family: Arial, sans-serif;
-      min-height: 100vh;
-    }
+body {
+  background: #05070d;
+  color: white;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
 
-    .app {
-      max-width: 480px;
-      margin: auto;
-      padding: 25px 18px;
-    }
+.app {
+  max-width: 480px;
+  margin: auto;
+  padding: 25px 18px;
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      margin-bottom: 35px;
-    }
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
 
-    .logo span {
-      color: #6ecbff;
-    }
+.logo span {
+  color: #79d7ff;
+}
 
-    .balance {
-      background: linear-gradient(135deg, #101a2d, #07101d);
-      border: 1px solid #1e3958;
-      border-radius: 20px;
-      padding: 20px;
-      margin-bottom: 25px;
-    }
+.card {
+  background: #0d111b;
+  border: 1px solid #202a3a;
+  border-radius: 20px;
+  padding: 22px;
+  margin-bottom: 18px;
+}
 
-    .coins {
-      font-size: 32px;
-      font-weight: bold;
-      margin-top: 8px;
-    }
+h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
 
-    h1 {
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
+h2 {
+  margin-bottom: 15px;
+}
 
-    .subtitle {
-      color: #8995a8;
-      margin-bottom: 25px;
-    }
+.subtitle {
+  color: #8995a8;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
 
-    .tools {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
+input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  border: 1px solid #273448;
+  background: #070a11;
+  color: white;
+  font-size: 15px;
+  outline: none;
+}
 
-    .tool {
-      background: #0d111b;
-      border: 1px solid #202a3a;
-      border-radius: 18px;
-      padding: 20px;
-      cursor: pointer;
-    }
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 13px;
+  background: #79d7ff;
+  color: #031019;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 8px;
+}
 
-    .tool:active {
-      transform: scale(0.97);
-    }
+.secondary {
+  background: #151c29;
+  color: white;
+  border: 1px solid #273448;
+}
 
-    .icon {
-      font-size: 30px;
-      margin-bottom: 12px;
-    }
+.link {
+  color: #79d7ff;
+  text-align: center;
+  margin-top: 18px;
+  cursor: pointer;
+}
 
-    .tool h3 {
-      margin-bottom: 6px;
-    }
+.balance {
+  background: linear-gradient(135deg, #101a2d, #07101d);
+  border: 1px solid #1e3958;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
 
-    .tool p {
-      color: #7f8a9d;
-      font-size: 13px;
-    }
+.coins {
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 8px;
+}
 
-    .button {
-      width: 100%;
-      border: none;
-      border-radius: 15px;
-      padding: 16px;
-      margin-top: 25px;
-      background: #8bd8ff;
-      color: #031019;
-      font-size: 16px;
-      font-weight: bold;
-    }
-  </style>
+.tools {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.tool {
+  background: #0d111b;
+  border: 1px solid #202a3a;
+  border-radius: 18px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.tool:active {
+  transform: scale(0.97);
+}
+
+.icon {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.tool h3 {
+  margin-bottom: 6px;
+}
+
+.tool p {
+  color: #7f8a9d;
+  font-size: 13px;
+}
+
+.hidden {
+  display: none;
+}
+
+.message {
+  color: #79d7ff;
+  text-align: center;
+  margin-top: 15px;
+  min-height: 20px;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="app">
+<div class="app">
 
-    <div class="logo">❄️ Frost <span>AI</span></div>
+  <div class="logo">
+    ❄️ Frost <span>AI</span>
+  </div>
+
+  <!-- LOGIN -->
+  <div id="loginPage">
+
+    <div class="card">
+      <h1>Welcome back</h1>
+
+      <p class="subtitle">
+        Login to your Frost AI account.
+      </p>
+
+      <input
+        id="loginUsername"
+        type="text"
+        placeholder="Username"
+      >
+
+      <input
+        id="loginPassword"
+        type="password"
+        placeholder="Password"
+      >
+
+      <button onclick="login()">
+        Login
+      </button>
+
+      <div class="link" onclick="showSignup()">
+        Create a new account
+      </div>
+
+      <div id="loginMessage" class="message"></div>
+    </div>
+
+  </div>
+
+
+  <!-- SIGN UP -->
+  <div id="signupPage" class="hidden">
+
+    <div class="card">
+
+      <h1>Create Account</h1>
+
+      <p class="subtitle">
+        Join Frost AI and receive 50 free Frost Coins.
+      </p>
+
+      <input
+        id="signupUsername"
+        type="text"
+        placeholder="Choose a username"
+      >
+
+      <input
+        id="signupPassword"
+        type="password"
+        placeholder="Create a password"
+      >
+
+      <button onclick="signup()">
+        Create Account
+      </button>
+
+      <div class="link" onclick="showLogin()">
+        Already have an account? Login
+      </div>
+
+      <div id="signupMessage" class="message"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="hidden">
 
     <div class="balance">
-      <div>Your Frost Coins</div>
-      <div class="coins">🪙 50</div>
+
+      <div>Welcome, <span id="usernameDisplay"></span> 👋</div>
+
+      <div class="coins">
+        🪙 <span id="coinDisplay">50</span>
+      </div>
+
+      <div style="color:#8995a8;margin-top:5px;">
+        Frost Coins
+      </div>
+
     </div>
 
     <h1>What are you creating today?</h1>
@@ -122,39 +260,290 @@
       Create, imagine and bring your ideas to life with Frost AI.
     </p>
 
+
     <div class="tools">
 
-      <div class="tool">
+      <div class="tool" onclick="useTool('AI Image')">
         <div class="icon">🎨</div>
         <h3>AI Image</h3>
         <p>Create images from your ideas.</p>
       </div>
 
-      <div class="tool">
+      <div class="tool" onclick="useTool('AI Video')">
         <div class="icon">🎬</div>
         <h3>AI Video</h3>
         <p>Turn your ideas into videos.</p>
       </div>
 
-      <div class="tool">
+      <div class="tool" onclick="useTool('AI Writer')">
         <div class="icon">✍️</div>
         <h3>AI Writer</h3>
         <p>Write captions, stories and more.</p>
       </div>
 
-      <div class="tool">
+      <div class="tool" onclick="useTool('AI Music')">
         <div class="icon">🎵</div>
         <h3>AI Music</h3>
-        <p>Create sounds and music ideas.</p>
+        <p>Create music ideas.</p>
       </div>
 
     </div>
 
-    <button class="button">
-      👤 My Account
+
+    <button class="secondary" onclick="logout()">
+      🚪 Logout
     </button>
 
+    <div id="toolMessage" class="message"></div>
+
   </div>
+
+</div>
+
+
+<script>
+
+function getUser() {
+  return JSON.parse(localStorage.getItem("frostUser"));
+}
+
+
+function signup() {
+
+  const username =
+    document.getElementById("signupUsername").value.trim();
+
+  const password =
+    document.getElementById("signupPassword").value;
+
+  const message =
+    document.getElementById("signupMessage");
+
+
+  if (!username || !password) {
+
+    message.textContent =
+      "Please enter a username and password.";
+
+    return;
+  }
+
+
+  if (localStorage.getItem("frostAccount")) {
+
+    message.textContent =
+      "An account already exists on this device.";
+
+    return;
+  }
+
+
+  const account = {
+
+    username: username,
+
+    password: password,
+
+    coins: 50
+
+  };
+
+
+  localStorage.setItem(
+    "frostAccount",
+    JSON.stringify(account)
+  );
+
+
+  message.textContent =
+    "Account created! You received 50 Frost Coins.";
+
+  setTimeout(function() {
+
+    showLogin();
+
+  }, 1200);
+
+}
+
+
+function login() {
+
+  const username =
+    document.getElementById("loginUsername").value.trim();
+
+  const password =
+    document.getElementById("loginPassword").value;
+
+  const message =
+    document.getElementById("loginMessage");
+
+
+  const account =
+    JSON.parse(localStorage.getItem("frostAccount"));
+
+
+  if (!account) {
+
+    message.textContent =
+      "No account found. Create an account first.";
+
+    return;
+  }
+
+
+  if (
+    username !== account.username ||
+    password !== account.password
+  ) {
+
+    message.textContent =
+      "Incorrect username or password.";
+
+    return;
+  }
+
+
+  localStorage.setItem(
+    "frostLoggedIn",
+    "true"
+  );
+
+
+  showDashboard();
+
+}
+
+
+function showSignup() {
+
+  document
+    .getElementById("loginPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("signupPage")
+    .classList.remove("hidden");
+
+}
+
+
+function showLogin() {
+
+  document
+    .getElementById("signupPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("loginPage")
+    .classList.remove("hidden");
+
+}
+
+
+function showDashboard() {
+
+  const account =
+    JSON.parse(localStorage.getItem("frostAccount"));
+
+
+  document
+    .getElementById("loginPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("signupPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("dashboard")
+    .classList.remove("hidden");
+
+
+  document.getElementById(
+    "usernameDisplay"
+  ).textContent = account.username;
+
+
+  document.getElementById(
+    "coinDisplay"
+  ).textContent = account.coins;
+
+}
+
+
+function logout() {
+
+  localStorage.removeItem("frostLoggedIn");
+
+  document
+    .getElementById("dashboard")
+    .classList.add("hidden");
+
+  showLogin();
+
+}
+
+
+function useTool(toolName) {
+
+  const account =
+    JSON.parse(localStorage.getItem("frostAccount"));
+
+  const message =
+    document.getElementById("toolMessage");
+
+
+  const cost = 10;
+
+
+  if (account.coins < cost) {
+
+    message.textContent =
+      "Not enough Frost Coins.";
+
+    return;
+  }
+
+
+  account.coins -= cost;
+
+
+  localStorage.setItem(
+    "frostAccount",
+    JSON.stringify(account)
+  );
+
+
+  document.getElementById(
+    "coinDisplay"
+  ).textContent = account.coins;
+
+
+  message.textContent =
+    toolName + " selected. 10 Frost Coins used.";
+
+}
+
+
+window.onload = function() {
+
+  const loggedIn =
+    localStorage.getItem("frostLoggedIn");
+
+  const account =
+    localStorage.getItem("frostAccount");
+
+
+  if (loggedIn && account) {
+
+    showDashboard();
+
+  }
+
+};
+
+</script>
 
 </body>
 </html>
