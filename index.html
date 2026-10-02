@@ -14,7 +14,7 @@
 }
 
 body{
-  background:#05070d;
+  background:#050912;
   color:white;
   min-height:100vh;
 }
@@ -30,25 +30,30 @@ body{
   text-align:center;
   font-size:32px;
   font-weight:bold;
-  margin:25px 0;
+  margin-bottom:8px;
+}
+
+.sub{
+  text-align:center;
+  color:#8fa5bd;
+  margin-bottom:30px;
 }
 
 .card{
-  background:#0d111c;
-  border:1px solid #1d2a40;
-  border-radius:20px;
-  padding:22px;
-  margin-top:20px;
-  box-shadow:0 0 25px rgba(0,150,255,.08);
+  background:#0d1624;
+  border:1px solid #1d3045;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:15px;
 }
 
-input,textarea{
+input{
   width:100%;
   padding:15px;
   margin:8px 0;
+  border:none;
   border-radius:12px;
-  border:1px solid #26364f;
-  background:#080c14;
+  background:#162335;
   color:white;
   outline:none;
 }
@@ -59,144 +64,54 @@ button{
   margin-top:10px;
   border:none;
   border-radius:12px;
-  background:#168cff;
+  background:#2d8cff;
   color:white;
   font-size:16px;
   font-weight:bold;
+  cursor:pointer;
+}
+
+button:active{
+  transform:scale(.98);
 }
 
 .secondary{
-  background:#151c2b;
-}
-
-.ownerButton{
-  background:#7b4dff;
+  background:#182536;
 }
 
 .danger{
-  background:#a9283b;
+  background:#a83232;
 }
 
-.success{
-  background:#168c62;
+.coin{
+  color:#70c8ff;
+  font-weight:bold;
 }
 
 .hidden{
   display:none;
 }
 
-.coins{
-  text-align:center;
-  background:#101a2b;
-  padding:15px;
-  border-radius:15px;
-  margin:15px 0;
-  font-size:18px;
-}
-
-.ownerBadge{
-  display:inline-block;
-  background:#7b4dff;
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:13px;
-  margin-top:8px;
-}
-
-.tools{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-top:20px;
+h2{
+  margin-bottom:15px;
 }
 
 .tool{
-  background:#0d111c;
-  border:1px solid #1d2a40;
-  border-radius:18px;
-  padding:20px 12px;
-  text-align:center;
+  padding:18px;
+  background:#111e2e;
+  border-radius:15px;
+  margin:10px 0;
 }
 
-.icon{
-  font-size:35px;
-  margin-bottom:10px;
-}
-
-.tool h3{
-  font-size:16px;
-}
-
-.tool p{
-  color:#8995a8;
-  font-size:12px;
-  margin-top:5px;
-}
-
-.back{
-  background:#151c2b;
-}
-
-.preview{
+textarea{
   width:100%;
-  min-height:230px;
-  border-radius:18px;
-  background:linear-gradient(135deg,#0b1220,#101b31);
-  border:1px dashed #2b4568;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:20px;
-  color:#8290a5;
-  margin-top:15px;
-}
-
-.result{
-  margin-top:15px;
+  min-height:120px;
   padding:15px;
-  border-radius:14px;
-  background:#080c14;
-  border:1px solid #1d2a40;
-  line-height:1.5;
-}
-
-.userRow{
-  background:#080c14;
-  border:1px solid #1d2a40;
-  padding:15px;
-  border-radius:14px;
-  margin-top:10px;
-}
-
-.userRow strong{
-  display:block;
-  margin-bottom:5px;
-}
-
-.small{
-  color:#8290a5;
-  font-size:13px;
-  text-align:center;
-  margin-top:10px;
-}
-
-.setting{
-  margin-top:15px;
-}
-
-.setting label{
-  display:block;
-  color:#b7c2d4;
-  font-size:14px;
-  margin-bottom:5px;
-}
-
-.stat{
-  background:#101a2b;
-  padding:15px;
-  border-radius:14px;
-  margin-top:10px;
+  border-radius:12px;
+  border:none;
+  background:#162335;
+  color:white;
+  resize:none;
 }
 </style>
 </head>
@@ -208,38 +123,18 @@ button{
 <!-- LOGIN -->
 <div id="loginPage">
 
-<div class="logo">❄️ Frost AI</div>
+  <div class="logo">❄️ Frost AI</div>
+  <div class="sub">Create anything with AI</div>
 
-<div class="card">
+  <div class="card">
+    <h2>Welcome back</h2>
 
-<h2>Welcome back</h2>
+    <input id="loginUser" placeholder="Username">
+    <input id="loginPass" type="password" placeholder="Password">
 
-<input id="loginUser" placeholder="Username">
-
-<input
-id="loginPass"
-type="password"
-placeholder="Password">
-
-<button onclick="login()">Login</button>
-
-<button
-class="secondary"
-onclick="forgotPassword()">
-🔐 Forgot Password?
-</button>
-
-<button
-class="secondary"
-onclick="showSignup()">
-Create account
-</button>
-
-<p class="small">
-Create an account and get 50 Frost Coins 🪙
-</p>
-
-</div>
+    <button onclick="login()">Login</button>
+    <button class="secondary" onclick="showSignup()">Create account</button>
+  </div>
 
 </div>
 
@@ -247,32 +142,20 @@ Create an account and get 50 Frost Coins 🪙
 <!-- SIGNUP -->
 <div id="signupPage" class="hidden">
 
-<div class="logo">❄️ Frost AI</div>
+  <div class="logo">❄️ Frost AI</div>
+  <div class="sub">Create your free account</div>
 
-<div class="card">
+  <div class="card">
 
-<h2>Create account</h2>
+    <h2>Sign Up</h2>
 
-<input
-id="signupUser"
-placeholder="Choose username">
+    <input id="signupUser" placeholder="Choose username">
+    <input id="signupPass" type="password" placeholder="Choose password">
 
-<input
-id="signupPass"
-type="password"
-placeholder="Choose password">
+    <button onclick="signup()">Create Account</button>
+    <button class="secondary" onclick="showLogin()">Back to Login</button>
 
-<button onclick="signup()">
-Create Account
-</button>
-
-<button
-class="secondary"
-onclick="showLogin()">
-Back to Login
-</button>
-
-</div>
+  </div>
 
 </div>
 
@@ -280,89 +163,40 @@ Back to Login
 <!-- DASHBOARD -->
 <div id="dashboard" class="hidden">
 
-<div class="logo">❄️ Frost AI</div>
+  <div class="logo">❄️ Frost AI</div>
+  <div class="sub">What are you creating today?</div>
 
-<div class="coins">
-🪙 Frost Coins:
-<strong id="coinBalance">50</strong>
-</div>
+  <div class="card">
+    <h2>Welcome, <span id="username"></span> 👋</h2>
 
-<div class="card">
+    <p>🪙 Frost Coins:
+      <span class="coin" id="coins"></span>
+    </p>
+  </div>
 
-<h2 id="welcomeUser">Welcome</h2>
+  <div class="tool">
+    <h2>🎨 AI Image</h2>
+    <p>Create an AI image.</p>
+    <button onclick="openImage()">Open AI Image</button>
+  </div>
 
-<div
-id="ownerBadge"
-class="ownerBadge hidden">
-👑 OWNER / ADMIN
-</div>
+  <div class="tool">
+    <h2>✍️ AI Writer</h2>
+    <p>Generate captions, stories and ideas.</p>
+    <button onclick="openWriter()">Open AI Writer</button>
+  </div>
 
-<p class="small">
-What are you creating today?
-</p>
+  <div class="tool">
+    <h2>🎬 AI Video</h2>
+    <p>Coming soon.</p>
+  </div>
 
-</div>
+  <div class="tool">
+    <h2>🎵 AI Music</h2>
+    <p>Coming soon.</p>
+  </div>
 
-<div class="tools">
-
-<div class="tool"
-onclick="openTool('AI Image')">
-
-<div class="icon">🎨</div>
-
-<h3>AI Image</h3>
-
-<p>Create images from ideas</p>
-
-</div>
-
-<div class="tool"
-onclick="openTool('AI Video')">
-
-<div class="icon">🎬</div>
-
-<h3>AI Video</h3>
-
-<p>Create AI videos</p>
-
-</div>
-
-<div class="tool"
-onclick="openTool('AI Writer')">
-
-<div class="icon">✍️</div>
-
-<h3>AI Writer</h3>
-
-<p>Write with AI</p>
-
-</div>
-
-<div class="tool"
-onclick="openTool('AI Music')">
-
-<div class="icon">🎵</div>
-
-<h3>AI Music</h3>
-
-<p>Create music</p>
-
-</div>
-
-</div>
-
-<button
-id="ownerPanelButton"
-class="ownerButton hidden"
-onclick="openOwnerPanel()">
-👑 Owner Panel
-</button>
-
-<button
-class="secondary"
-onclick="logout()">
-Logout
-</button>
+  <button class="secondary" onclick="logout()">Logout</button>
 
 </div>
 
@@ -370,32 +204,21 @@ Logout
 <!-- IMAGE -->
 <div id="imagePage" class="hidden">
 
-<button
-class="back"
-onclick="backDashboard()">
-← Back
-</button>
+  <div class="logo">🎨 AI Image</div>
 
-<div class="card">
+  <div class="card">
 
-<h2>🎨 AI Image</h2>
+    <p>Cost: <span class="coin">10 🪙</span></p>
 
-<textarea
-id="imagePrompt"
-placeholder="Describe your image...">
-</textarea>
+    <input id="imagePrompt" placeholder="Describe your image...">
 
-<button onclick="generateImage()">
-✨ Generate Image
-</button>
+    <button onclick="generateImage()">Generate</button>
 
-<div
-id="imagePreview"
-class="preview">
-Your generated image will appear here.
-</div>
+    <button class="secondary" onclick="backDashboard()">Back</button>
 
-</div>
+    <div id="imageResult"></div>
+
+  </div>
 
 </div>
 
@@ -403,199 +226,22 @@ Your generated image will appear here.
 <!-- WRITER -->
 <div id="writerPage" class="hidden">
 
-<button
-class="back"
-onclick="backDashboard()">
-← Back
-</button>
+  <div class="logo">✍️ AI Writer</div>
 
-<div class="card">
+  <div class="card">
 
-<h2>✍️ AI Writer</h2>
+    <p>Cost: <span class="coin">10 🪙</span></p>
 
-<textarea
-id="writerPrompt"
-placeholder="What do you want Frost AI to write?">
-</textarea>
+    <textarea id="writerPrompt"
+      placeholder="What should Frost AI write?"></textarea>
 
-<button onclick="generateWriter()">
-✨ Generate
-</button>
+    <button onclick="generateWriter()">Generate</button>
 
-<div
-id="writerResult"
-class="result hidden">
-</div>
+    <button class="secondary" onclick="backDashboard()">Back</button>
 
-<button
-id="copyButton"
-class="secondary hidden"
-onclick="copyWriter()">
-📋 Copy
-</button>
+    <div id="writerResult"></div>
 
-</div>
-
-</div>
-
-
-<!-- COMING -->
-<div id="comingPage" class="hidden">
-
-<button
-class="back"
-onclick="backDashboard()">
-← Back
-</button>
-
-<div class="card">
-
-<h2 id="comingTitle">
-Frost AI
-</h2>
-
-<div class="preview">
-🚧 This tool is coming soon.
-</div>
-
-</div>
-
-</div>
-
-
-<!-- OWNER PANEL -->
-<div id="ownerPage" class="hidden">
-
-<button
-class="back"
-onclick="backDashboard()">
-← Dashboard
-</button>
-
-<div class="logo">
-👑 Owner Panel
-</div>
-
-
-<!-- STATS -->
-<div class="card">
-
-<h2>📊 Overview</h2>
-
-<div class="stat">
-👥 Total Users:
-<strong id="totalUsers">0</strong>
-</div>
-
-<div class="stat">
-🪙 Total Coins:
-<strong id="totalCoins">0</strong>
-</div>
-
-</div>
-
-
-<!-- USER MANAGEMENT -->
-<div class="card">
-
-<h2>👥 User Management</h2>
-
-<p class="small">
-Add or remove coins from individual users.
-</p>
-
-<div id="userList"></div>
-
-</div>
-
-
-<!-- APP SETTINGS -->
-<div class="card">
-
-<h2>⚙️ App Settings</h2>
-
-<div class="setting">
-
-<label>
-🎁 Signup Bonus
-</label>
-
-<input
-id="signupBonusInput"
-type="number"
-min="0">
-
-</div>
-
-
-<div class="setting">
-
-<label>
-🤝 Referral Bonus
-</label>
-
-<input
-id="referralBonusInput"
-type="number"
-min="0">
-
-</div>
-
-
-<div class="setting">
-
-<label>
-🎨 AI Image Price
-</label>
-
-<input
-id="imagePriceInput"
-type="number"
-min="0">
-
-</div>
-
-
-<div class="setting">
-
-<label>
-✍️ AI Writer Price
-</label>
-
-<input
-id="writerPriceInput"
-type="number"
-min="0">
-
-</div>
-
-
-<button
-class="success"
-onclick="saveSettings()">
-💾 Save Settings
-</button>
-
-</div>
-
-
-<!-- OWNER ACTIONS -->
-<div class="card">
-
-<h2>👑 Owner Actions</h2>
-
-<button
-onclick="giveCoinsToAll()">
-🪙 Give Bonus To Everyone
-</button>
-
-<button
-class="danger"
-onclick="resetAllCoins()">
-⚠️ Reset All User Coins
-</button>
-
-</div>
+  </div>
 
 </div>
 
@@ -604,951 +250,257 @@ onclick="resetAllCoins()">
 
 <script>
 
-const OWNER_USERNAME = "Takunda";
+const OWNER = "Takunda";
 
-let currentUser =
-localStorage.getItem("frostCurrentUser");
+let users = JSON.parse(localStorage.getItem("frostUsers") || "{}");
 
-
-/* ======================
-SETTINGS
-====================== */
-
-function getSettings(){
-
-return JSON.parse(
-localStorage.getItem("frostSettings")
-||
-JSON.stringify({
-
-signupBonus:50,
-
-referralBonus:50,
-
-imagePrice:10,
-
-writerPrice:10
-
-})
-);
-
-}
+let currentUser = localStorage.getItem("frostCurrentUser");
 
 
-function saveSettingsData(settings){
-
-localStorage.setItem(
-"frostSettings",
-JSON.stringify(settings)
-);
-
-}
-
-
-/* ======================
-USERS
-====================== */
-
-function getUsers(){
-
-return JSON.parse(
-localStorage.getItem("frostUsers")
-|| "{}"
-);
-
-}
-
-
-function saveUsers(users){
-
-localStorage.setItem(
-"frostUsers",
-JSON.stringify(users)
-);
-
-}
-
-
-/* ======================
-PAGES
-====================== */
-
-function hideAll(){
-
-document
-.querySelectorAll(
-"#loginPage,#signupPage,#dashboard,#imagePage,#writerPage,#comingPage,#ownerPage"
-)
-.forEach(page=>{
-page.classList.add("hidden");
-});
-
+function saveUsers(){
+  localStorage.setItem("frostUsers", JSON.stringify(users));
 }
 
 
 function showLogin(){
 
-hideAll();
-
-document
-.getElementById("loginPage")
-.classList.remove("hidden");
+  document.getElementById("loginPage").classList.remove("hidden");
+  document.getElementById("signupPage").classList.add("hidden");
 
 }
 
 
 function showSignup(){
 
-hideAll();
-
-document
-.getElementById("signupPage")
-.classList.remove("hidden");
+  document.getElementById("loginPage").classList.add("hidden");
+  document.getElementById("signupPage").classList.remove("hidden");
 
 }
 
-
-/* ======================
-SIGNUP
-====================== */
 
 function signup(){
 
-const username =
-document
-.getElementById("signupUser")
-.value
-.trim();
+  let username =
+    document.getElementById("signupUser").value.trim();
 
-const password =
-document
-.getElementById("signupPass")
-.value;
+  let password =
+    document.getElementById("signupPass").value;
 
-if(!username || !password){
+  if(!username || !password){
 
-alert("Enter a username and password.");
+    alert("Please fill in everything.");
 
-return;
-}
+    return;
+  }
 
-if(password.length < 4){
+  if(users[username]){
 
-alert("Password must be at least 4 characters.");
+    alert("Username already exists.");
 
-return;
-}
+    return;
+  }
 
-const users = getUsers();
+  users[username] = {
 
-if(users[username]){
+    password:password,
 
-alert("Username already exists.");
+    coins:50
 
-return;
-}
+  };
 
-const settings = getSettings();
+  saveUsers();
 
-users[username] = {
+  alert("Account created! You received 50 Frost Coins 🪙");
 
-password:password,
+  document.getElementById("loginUser").value=username;
 
-coins:Number(settings.signupBonus),
-
-joined:new Date().toLocaleDateString()
-
-};
-
-saveUsers(users);
-
-alert(
-"Account created! You received "
-+
-settings.signupBonus
-+
-" Frost Coins 🪙"
-);
-
-showLogin();
+  showLogin();
 
 }
 
-
-/* ======================
-LOGIN
-====================== */
 
 function login(){
 
-const username =
-document
-.getElementById("loginUser")
-.value
-.trim();
+  let username =
+    document.getElementById("loginUser").value.trim();
 
-const password =
-document
-.getElementById("loginPass")
-.value;
+  let password =
+    document.getElementById("loginPass").value;
 
-const users = getUsers();
+  if(!users[username]){
 
-if(!users[username]){
+    alert("Account not found.");
 
-alert("Username not found.");
+    return;
+  }
 
-return;
-}
+  if(users[username].password !== password){
 
-if(users[username].password !== password){
+    alert("Wrong password.");
 
-alert("Incorrect password.");
+    return;
+  }
 
-return;
-}
+  currentUser=username;
 
-currentUser = username;
+  localStorage.setItem("frostCurrentUser",username);
 
-localStorage.setItem(
-"frostCurrentUser",
-currentUser
-);
-
-showDashboard();
+  showDashboard();
 
 }
 
-
-/* ======================
-DASHBOARD
-====================== */
 
 function showDashboard(){
 
-hideAll();
+  document.getElementById("loginPage").classList.add("hidden");
+  document.getElementById("signupPage").classList.add("hidden");
 
-document
-.getElementById("dashboard")
-.classList.remove("hidden");
+  document.getElementById("imagePage").classList.add("hidden");
+  document.getElementById("writerPage").classList.add("hidden");
 
-const users = getUsers();
+  document.getElementById("dashboard").classList.remove("hidden");
 
-if(!users[currentUser]){
+  document.getElementById("username").textContent=currentUser;
 
-logout();
-
-return;
-}
-
-document
-.getElementById("welcomeUser")
-.textContent =
-"Welcome, " + currentUser;
-
-updateCoins();
-
-const owner =
-currentUser === OWNER_USERNAME;
-
-document
-.getElementById("ownerBadge")
-.classList.toggle(
-"hidden",
-!owner
-);
-
-document
-.getElementById("ownerPanelButton")
-.classList.toggle(
-"hidden",
-!owner
-);
+  document.getElementById("coins").textContent=
+    currentUser === OWNER
+    ? "∞"
+    : users[currentUser].coins;
 
 }
 
 
-/* ======================
-COINS
-====================== */
+function logout(){
 
-function updateCoins(){
+  currentUser=null;
 
-const users = getUsers();
+  localStorage.removeItem("frostCurrentUser");
 
-if(!users[currentUser]) return;
+  document.getElementById("dashboard").classList.add("hidden");
 
-document
-.getElementById("coinBalance")
-.textContent =
-users[currentUser].coins;
+  showLogin();
 
 }
 
 
-function spendCoins(amount){
+function openImage(){
 
-if(currentUser === OWNER_USERNAME){
+  document.getElementById("dashboard").classList.add("hidden");
 
-return true;
-
-}
-
-const users = getUsers();
-
-if(users[currentUser].coins < amount){
-
-alert("Not enough Frost Coins 🪙");
-
-return false;
-
-}
-
-users[currentUser].coins -= amount;
-
-saveUsers(users);
-
-updateCoins();
-
-return true;
+  document.getElementById("imagePage").classList.remove("hidden");
 
 }
 
 
-/* ======================
-TOOLS
-====================== */
+function openWriter(){
 
-function openTool(tool){
+  document.getElementById("dashboard").classList.add("hidden");
 
-if(tool === "AI Image"){
-
-hideAll();
-
-document
-.getElementById("imagePage")
-.classList.remove("hidden");
-
-return;
-
-}
-
-if(tool === "AI Writer"){
-
-hideAll();
-
-document
-.getElementById("writerPage")
-.classList.remove("hidden");
-
-return;
-
-}
-
-hideAll();
-
-document
-.getElementById("comingPage")
-.classList.remove("hidden");
-
-document
-.getElementById("comingTitle")
-.textContent =
-tool;
+  document.getElementById("writerPage").classList.remove("hidden");
 
 }
 
 
 function backDashboard(){
 
-showDashboard();
+  document.getElementById("imagePage").classList.add("hidden");
+
+  document.getElementById("writerPage").classList.add("hidden");
+
+  showDashboard();
 
 }
 
 
-/* ======================
-IMAGE
-====================== */
+function spend(){
+
+  if(currentUser === OWNER) return true;
+
+  if(users[currentUser].coins < 10){
+
+    alert("Not enough Frost Coins 🪙");
+
+    return false;
+
+  }
+
+  users[currentUser].coins -= 10;
+
+  saveUsers();
+
+  return true;
+
+}
+
 
 function generateImage(){
 
-const prompt =
-document
-.getElementById("imagePrompt")
-.value
-.trim();
+  let prompt =
+    document.getElementById("imagePrompt").value.trim();
 
-if(!prompt){
+  if(!prompt){
 
-alert("Describe your image first.");
+    alert("Describe the image first.");
 
-return;
+    return;
+  }
 
-}
+  if(!spend()) return;
 
-const settings = getSettings();
-
-if(!spendCoins(
-Number(settings.imagePrice)
-)) return;
-
-document
-.getElementById("imagePreview")
-.textContent =
-"✨ Creating...\n\n"
-+
-prompt;
-
-setTimeout(()=>{
-
-document
-.getElementById("imagePreview")
-.textContent =
-"🧊 Demo image generated.\n\n"
-+
-"Prompt: "
-+
-prompt
-+
-"\n\nReal AI generation will be connected later.";
-
-},1000);
+  document.getElementById("imageResult").innerHTML =
+    "<div class='card'><h2>❄️ Frost AI</h2>" +
+    "<p>Demo image created from:</p>" +
+    "<p><b>"+escapeHTML(prompt)+"</b></p>" +
+    "<p>Real AI image generation will be connected later.</p></div>";
 
 }
 
-
-/* ======================
-WRITER
-====================== */
 
 function generateWriter(){
 
-const prompt =
-document
-.getElementById("writerPrompt")
-.value
-.trim();
+  let prompt =
+    document.getElementById("writerPrompt").value.trim();
 
-if(!prompt){
+  if(!prompt){
 
-alert("Tell Frost AI what to write.");
+    alert("Tell Frost AI what to write.");
 
-return;
+    return;
+  }
 
-}
+  if(!spend()) return;
 
-const settings = getSettings();
-
-if(!spendCoins(
-Number(settings.writerPrice)
-)) return;
-
-document
-.getElementById("writerResult")
-.textContent =
-"✨ Frost AI Demo\n\n"
-+
-"You asked: "
-+
-prompt
-+
-"\n\n"
-+
-"Real AI writing will be connected later.";
-
-document
-.getElementById("writerResult")
-.classList.remove("hidden");
-
-document
-.getElementById("copyButton")
-.classList.remove("hidden");
+  document.getElementById("writerResult").innerHTML =
+    "<div class='card'>" +
+    "<h2>✍️ Frost AI</h2>" +
+    "<p>Here's a demo response for:</p>" +
+    "<p><b>"+escapeHTML(prompt)+"</b></p>" +
+    "<br>" +
+    "<p>Real AI writing will be connected later.</p>" +
+    "</div>";
 
 }
 
 
-function copyWriter(){
+function escapeHTML(text){
 
-const text =
-document
-.getElementById("writerResult")
-.textContent;
-
-navigator.clipboard
-.writeText(text)
-.then(()=>{
-alert("Copied! 📋");
-});
+  return text
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
 
-/* ======================
-FORGOT PASSWORD
-====================== */
+if(currentUser && users[currentUser]){
 
-function forgotPassword(){
-
-const username =
-prompt(
-"Enter your Frost AI username:"
-);
-
-if(!username) return;
-
-const users = getUsers();
-
-if(!users[username]){
-
-alert("Username not found.");
-
-return;
-
-}
-
-const password =
-prompt(
-"Enter your new password:"
-);
-
-if(!password) return;
-
-if(password.length < 4){
-
-alert(
-"Password must be at least 4 characters."
-);
-
-return;
-
-}
-
-users[username].password =
-password;
-
-saveUsers(users);
-
-alert(
-"Password changed successfully! ❄️"
-);
-
-}
-
-
-/* ======================
-OWNER PANEL
-====================== */
-
-function openOwnerPanel(){
-
-if(currentUser !== OWNER_USERNAME){
-
-alert("Owner access only.");
-
-return;
-
-}
-
-hideAll();
-
-document
-.getElementById("ownerPage")
-.classList.remove("hidden");
-
-loadOwnerPanel();
-
-}
-
-
-function loadOwnerPanel(){
-
-if(currentUser !== OWNER_USERNAME){
-
-return;
-
-}
-
-const users = getUsers();
-
-const usernames =
-Object.keys(users);
-
-let totalCoins = 0;
-
-usernames.forEach(username=>{
-
-totalCoins +=
-Number(users[username].coins || 0);
-
-});
-
-document
-.getElementById("totalUsers")
-.textContent =
-usernames.length;
-
-document
-.getElementById("totalCoins")
-.textContent =
-totalCoins;
-
-const settings =
-getSettings();
-
-document
-.getElementById("signupBonusInput")
-.value =
-settings.signupBonus;
-
-document
-.getElementById("referralBonusInput")
-.value =
-settings.referralBonus;
-
-document
-.getElementById("imagePriceInput")
-.value =
-settings.imagePrice;
-
-document
-.getElementById("writerPriceInput")
-.value =
-settings.writerPrice;
-
-renderUsers();
-
-}
-
-
-/* ======================
-USER LIST
-====================== */
-
-function renderUsers(){
-
-const users = getUsers();
-
-const container =
-document.getElementById("userList");
-
-container.innerHTML = "";
-
-Object.keys(users).forEach(username=>{
-
-const user =
-users[username];
-
-const row =
-document.createElement("div");
-
-row.className =
-"userRow";
-
-row.innerHTML = `
-
-<strong>
-${username}
-${username === OWNER_USERNAME ? " 👑" : ""}
-</strong>
-
-<p class="small">
-🪙 ${user.coins} coins
-</p>
-
-<button
-onclick="addCoins('${username}')">
-➕ Add 50 Coins
-</button>
-
-<button
-class="secondary"
-onclick="removeCoins('${username}')">
-➖ Remove 50 Coins
-</button>
-
-${
-username !== OWNER_USERNAME
-?
-`<button
-class="danger"
-onclick="deleteUser('${username}')">
-🗑️ Delete User
-</button>`
-:
-""
-}
-
-`;
-
-container.appendChild(row);
-
-});
-
-}
-
-
-/* ======================
-ADD COINS
-====================== */
-
-function addCoins(username){
-
-if(currentUser !== OWNER_USERNAME)
-return;
-
-const users = getUsers();
-
-if(!users[username])
-return;
-
-users[username].coins += 50;
-
-saveUsers(users);
-
-loadOwnerPanel();
-
-if(username === currentUser){
-
-updateCoins();
-
-}
-
-}
-
-
-/* ======================
-REMOVE COINS
-====================== */
-
-function removeCoins(username){
-
-if(currentUser !== OWNER_USERNAME)
-return;
-
-const users = getUsers();
-
-if(!users[username])
-return;
-
-users[username].coins =
-Math.max(
-0,
-users[username].coins - 50
-);
-
-saveUsers(users);
-
-loadOwnerPanel();
-
-}
-
-
-/* ======================
-DELETE USER
-====================== */
-
-function deleteUser(username){
-
-if(currentUser !== OWNER_USERNAME)
-return;
-
-if(username === OWNER_USERNAME){
-
-alert("You cannot delete the Owner.");
-
-return;
-
-}
-
-if(!confirm(
-"Delete user " + username + "?"
-)){
-
-return;
-
-}
-
-const users = getUsers();
-
-delete users[username];
-
-saveUsers(users);
-
-loadOwnerPanel();
-
-alert(
-"User deleted."
-);
-
-}
-
-
-/* ======================
-SETTINGS
-====================== */
-
-function saveSettings(){
-
-if(currentUser !== OWNER_USERNAME)
-return;
-
-const settings = {
-
-signupBonus:
-Number(
-document
-.getElementById("signupBonusInput")
-.value
-),
-
-referralBonus:
-Number(
-document
-.getElementById("referralBonusInput")
-.value
-),
-
-imagePrice:
-Number(
-document
-.getElementById("imagePriceInput")
-.value
-),
-
-writerPrice:
-Number(
-document
-.getElementById("writerPriceInput")
-.value
-)
-
-};
-
-saveSettingsData(settings);
-
-alert(
-"Settings saved! ⚙️"
-);
-
-loadOwnerPanel();
-
-}
-
-
-/* ======================
-BONUS ALL
-====================== */
-
-function giveCoinsToAll(){
-
-if(currentUser !== OWNER_USERNAME)
-return;
-
-const users = getUsers();
-
-Object.keys(users).forEach(username=>{
-
-if(username !== OWNER_USERNAME){
-
-users[username].coins += 50;
-
-}
-
-});
-
-saveUsers(users);
-
-alert(
-"50 coins added to every user! 🪙"
-);
-
-loadOwnerPanel();
-
-}
-
-
-/* ======================
-RESET COINS
-====================== */
-
-function resetAllCoins(){
-
-if(currentUser !== OWNER_USERNAME)
-return;
-
-if(!confirm(
-"Reset all user coins to 0?"
-)){
-
-return;
-
-}
-
-const users = getUsers();
-
-Object.keys(users).forEach(username=>{
-
-if(username !== OWNER_USERNAME){
-
-users[username].coins = 0;
-
-}
-
-});
-
-saveUsers(users);
-
-alert(
-"All user coins have been reset."
-);
-
-loadOwnerPanel();
-
-}
-
-
-/* ======================
-LOGOUT
-====================== */
-
-function logout(){
-
-currentUser = null;
-
-localStorage.removeItem(
-"frostCurrentUser"
-);
-
-showLogin();
-
-}
-
-
-/* ======================
-START
-====================== */
-
-if(currentUser){
-
-const users = getUsers();
-
-if(users[currentUser]){
-
-showDashboard();
-
-}else{
-
-logout();
-
-}
-
-}else{
-
-showLogin();
+  showDashboard();
 
 }
 
 </script>
 
 </body>
-  </html>
+</html>
